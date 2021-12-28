@@ -3,13 +3,25 @@
   <PropertyGroup>
 	  <PackageId>NettyFinder.Net</PackageId>
 	  <Title>NettyFinder DotNet</Title>
-	  <Description> hebhbdeekkd</Description>
+	  <Description> This library checks a Nigerian ☎️ telephone number and detects which network it belongs to.</Description>
 	  <AssemblyTitle>NettyFinder.Net</AssemblyTitle>
 	  <NeutralLanguage>en-GB</NeutralLanguage>
 	  <Authors>Sunkanmi Ijatuyi</Authors>
 	  <Copyright>Sunkanmi Ijatuyi</Copyright>
 	  <AssemblyName>NettyFinder.Net</AssemblyName> 
 	  <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+	  <PackageProjectUrl>https://github.com/eskye/netty-finder-dotnet</PackageProjectUrl> 
+    <PackageTags>network;validation;utility;mobile number;</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/eskye/netty-finder-dotnet</RepositoryUrl>
+    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+    <RootNamespace>NettyFinder.Net</RootNamespace> 
+    <Version>1.0.0.alpha</Version>
+    <PackageReleaseNotes> 
+    This library checks a Nigerian ☎️ telephone number and detects which network it belongs to.
+    </PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/eskye/netty-finder-dotnet/blob/main/LICENSE</PackageLicenseUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/eskye/netty-finder-dotnet/main/assets/logo.png</PackageIconUrl>
   </PropertyGroup>
 
 
