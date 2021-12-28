@@ -23,20 +23,19 @@ namespace NettyFinder.Net
             var primaryPhonePrefix = GetPhonePrefix();
             var secondaryPhonePrefix = GetPhonePrefix(5);
 
+            if (Constants.starcomms.Contains(primaryPhonePrefix) || Constants.starcomms.Contains(secondaryPhonePrefix)) return Constants.Starcomms;
+            if (Constants.multilinks.Contains(primaryPhonePrefix) || Constants.multilinks.Contains(secondaryPhonePrefix)) return Constants.Multilinks;
+            if (Constants.visafone.Contains(primaryPhonePrefix) || Constants.visafone.Contains(secondaryPhonePrefix)) return Constants.Visafone;
+
             if (Constants.mtn.Contains(primaryPhonePrefix)) return Constants.Mtn;
             if (Constants.glo.Contains(primaryPhonePrefix)) return Constants.Glo;
             if (Constants.airtel.Contains(primaryPhonePrefix)) return Constants.Airtel;
             if (Constants.etisalat.Contains(primaryPhonePrefix)) return Constants.EtisalatMobile;
 
+         
             if (Constants.zoom.Contains(primaryPhonePrefix)) return Constants.Zoom;
             if (Constants.ntel.Contains(primaryPhonePrefix)) return Constants.Ntel;
             if (Constants.smile.Contains(primaryPhonePrefix)) return Constants.Smile;
-
-
-            if (Constants.starcomms.Contains(primaryPhonePrefix)|| Constants.starcomms.Contains(secondaryPhonePrefix)) return Constants.Starcomms;
-            if (Constants.multilinks.Contains(primaryPhonePrefix)|| Constants.multilinks.Contains(secondaryPhonePrefix)) return Constants.Multilinks;
-            if (Constants.visafone.Contains(primaryPhonePrefix)|| Constants.visafone.Contains(secondaryPhonePrefix)) return Constants.Visafone;
-
             return null;
         }
 
@@ -49,8 +48,8 @@ namespace NettyFinder.Net
         public bool ValidatePhoneNumber()
         {
             var prefix = phoneNumber.Substring(0,4);
-
-            if (!phoneNumber.All(c => char.IsDigit(c)))
+            var phoneNumberEdited = phoneNumber.StartsWith("+") ? phoneNumber.Substring(1) : phoneNumber;
+            if (!phoneNumberEdited.All(c => char.IsDigit(c)))
             {
                 throw new Exception("Phone number contains unwanted characters");
             }
@@ -81,7 +80,7 @@ namespace NettyFinder.Net
             //Convert it to normal 08030XXXXXXX
             if (prefix == "+234")
             {
-                phoneNumber = $"0{phoneNumber.Substring(4, phoneNumber.Length)}";
+                phoneNumber = $"0{phoneNumber.Substring(4)}";
             }
 
             return true;
