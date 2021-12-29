@@ -4,7 +4,7 @@ This is a .net verison of the original [netty-finder](https://github.com/BolajiA
 
 This script checks a Nigerian ☎️ telephone number and detects which network it belongs to, for .NET  version.
 
-**Note that this library does not cover ported mobile phone numbers (Phone numbers that has been port from one network provider to another network provider e.g Etisalat number ported to MTN number)**
+**Note that this library does not cover ported mobile phone numbers (Phone numbers that have been ported from one network provider to another network provider e.g Etisalat number ported to MTN number)**
 
 # Installation 
 
@@ -48,4 +48,4 @@ This was originally built by [Bolaji Ayodeji](https://github.com/BolajiAyodeji) 
  You are free to raise an issue, PR and contribute on the C# project. You can also contribute on the javascript version of [netty_finder](https://github.com/BolajiAyodeji/netty-finder). 
 
 # Road Map
-At the moment, this library does not cover ported phone numbers (Phone numbers that has been port from one network provider to another network provider e.g Etisalat number ported to MTN number), but there's a plan for it in the coming version.
+At the moment, this library does not cover ported phone numbers (Phone numbers that have been ported from one network provider to another network provider e.g Etisalat number ported to MTN number), but there's a plan for it in the coming version.
