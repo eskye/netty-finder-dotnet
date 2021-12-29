@@ -21,7 +21,7 @@
     This library checks a Nigerian ☎️ telephone number and detects which network it belongs to.
     </PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/eskye/netty-finder-dotnet/blob/main/LICENSE</PackageLicenseUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/eskye/netty-finder-dotnet/main/assets/logo.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/eskye/netty-finder-dotnet/main/assets/logo.png</PackageIconUrl> 
   </PropertyGroup>
 
 
