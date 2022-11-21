@@ -35,8 +35,7 @@ namespace NettyFinder.Net
          
             if (Constants.zoom.Contains(primaryPhonePrefix)) return Constants.Zoom;
             if (Constants.ntel.Contains(primaryPhonePrefix)) return Constants.Ntel;
-            if (Constants.smile.Contains(primaryPhonePrefix)) return Constants.Smile;
-            return null;
+            return Constants.smile.Contains(primaryPhonePrefix) ? Constants.Smile : null;
         }
 
 
