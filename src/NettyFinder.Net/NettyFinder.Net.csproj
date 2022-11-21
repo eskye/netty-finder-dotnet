@@ -16,7 +16,7 @@
     <RepositoryUrl>https://github.com/eskye/netty-finder-dotnet</RepositoryUrl>
     <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
     <RootNamespace>NettyFinder.Net</RootNamespace> 
-    <Version>1.0.0-alpha</Version>
+    <Version>1.0.0</Version>
     <PackageReleaseNotes> 
     This library checks a Nigerian ☎️ telephone number and detects which network it belongs to.
     </PackageReleaseNotes>
