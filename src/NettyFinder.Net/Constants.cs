@@ -24,7 +24,7 @@ namespace NettyFinder.Net
         public const string Smile = nameof(Smile);
 
         //PHONE NUMBERS PREFIX FOR EACH NETWORK PROVIDER
-        public static readonly string[] mtn = { "0806", "0803", "0816", "0813", "0810", "0814", "0903", "0906", "0703", "0706" };
+        public static readonly string[] mtn = { "0806", "0803", "0816", "0813", "0810", "0814", "0903", "0906", "0703", "0706","0916" };
         public static readonly string[] glo = { "0805", "0705", "0905", "0807", "0815", "0811", "0915" };
         public static readonly string[] airtel = { "0802", "0902", "0701", "0808", "0708", "0812", "0907" };
         public static readonly string[] etisalat = { "0809", "0909", "0817", "0818", "0908" };
