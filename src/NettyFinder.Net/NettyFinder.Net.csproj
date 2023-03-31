@@ -13,8 +13,7 @@
 	  <PackageProjectUrl>https://github.com/eskye/netty-finder-dotnet</PackageProjectUrl> 
     <PackageTags>network;validation;utility;mobile number;</PackageTags>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/eskye/netty-finder-dotnet</RepositoryUrl>
-    <TargetFrameworks>net5.0;netstandard2.0</TargetFrameworks>
+    <RepositoryUrl>https://github.com/eskye/netty-finder-dotnet</RepositoryUrl> 
     <RootNamespace>NettyFinder.Net</RootNamespace> 
     <Version>1.0.2</Version>
     <PackageReleaseNotes> 
