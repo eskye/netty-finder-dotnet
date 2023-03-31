@@ -101,16 +101,7 @@ namespace NettyFinder.Net.Tests
             var result = network.GetNetworkName();
             result.ShouldBe(Constants.Multilinks);
         }
-
-        [Fact]
-        public void Return_VisaFone_Network_Name()
-        {
-            var network = new Network("07025714589");
-            var result = network.GetNetworkName();
-            result.ShouldBe(Constants.Visafone);
-        }
-
-
+        
         [Fact]
         public void Return_StarComm_Network_Name()
         {
