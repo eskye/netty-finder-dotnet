@@ -23,18 +23,19 @@ namespace NettyFinder.Net
             var primaryPhonePrefix = GetPhonePrefix();
             var secondaryPhonePrefix = GetPhonePrefix(5);
 
-            if (Constants.starcomms.Contains(primaryPhonePrefix) || Constants.starcomms.Contains(secondaryPhonePrefix)) return Constants.Starcomms;
-            if (Constants.multilinks.Contains(primaryPhonePrefix) || Constants.multilinks.Contains(secondaryPhonePrefix)) return Constants.Multilinks; 
+            var prefixes = new[]{ primaryPhonePrefix, secondaryPhonePrefix };
 
-            if (Constants.mtn.Contains(primaryPhonePrefix) || Constants.mtn.Contains(secondaryPhonePrefix)) return Constants.Mtn;
-            if (Constants.glo.Contains(primaryPhonePrefix)) return Constants.Glo;
-            if (Constants.airtel.Contains(primaryPhonePrefix)) return Constants.Airtel;
-            if (Constants.etisalat.Contains(primaryPhonePrefix)) return Constants.EtisalatMobile;
-
-         
-            if (Constants.zoom.Contains(primaryPhonePrefix)) return Constants.Zoom;
-            if (Constants.ntel.Contains(primaryPhonePrefix)) return Constants.Ntel;
-            return Constants.smile.Contains(primaryPhonePrefix) ? Constants.Smile : null;
+            foreach (var prefix in prefixes)
+            {
+                if (Constants.MtnPrefixes.Contains(prefix)) return Constants.Mtn;
+                if (Constants.GloPrefixes.Contains(prefix)) return Constants.Glo;
+                if (Constants.AirtelPrefixes.Contains(prefix)) return Constants.Airtel;
+                if (Constants.EtisalatPrefixes.Contains(prefix)) return Constants.EtisalatMobile; 
+                if (Constants.ZoomPrefixes.Contains(prefix)) return Constants.Zoom;
+                if (Constants.NtelPrefixes.Contains(prefix)) return Constants.Ntel;
+                if (Constants.SmilePrefixes.Contains(prefix)) return Constants.Smile;
+            }
+            return  null;
         }
 
 
@@ -42,48 +43,47 @@ namespace NettyFinder.Net
         {
             return _phoneNumber.Substring(0, length);
         }
-
+        
+        
         public bool ValidatePhoneNumber()
         {
-            var prefix = _phoneNumber.Substring(0,4);
-            var phoneNumberEdited = _phoneNumber.StartsWith("+") ? _phoneNumber.Substring(1) : _phoneNumber;
-            if (!phoneNumberEdited.All(c => char.IsDigit(c)))
+            if (string.IsNullOrWhiteSpace(_phoneNumber))
+                throw new Exception("Phone number cannot be empty.");
+
+            var phone = _phoneNumber.Trim();
+
+            // Normalize +234 → 0 and handle the check
+            if (phone.StartsWith("+234"))
             {
-                throw new Exception("Phone number contains unwanted characters");
+                if (phone.Length != 14)
+                    throw new Exception("Number with +234 must be 14 characters long.");
+
+                phone = "0" + phone.Substring(4); // Convert +234xxxxxxxxxx → 0xxxxxxxxxx
+            }
+            else if (phone.StartsWith("234"))
+            {
+                if (phone.Length != 13)
+                    throw new Exception("Number with 234 must be 13 characters long.");
+
+                phone = "0" + phone.Substring(3); // Convert 234xxxxxxxxxx → 0xxxxxxxxxx
             }
 
-            if(_phoneNumber.Length < 11)
-            {
-                throw new Exception("Phone number cannot be less than 11 digit.");
-            }
+            // Remove any '+' for further checks
+            var phoneNumberEdited = phone.StartsWith("+") ? phone.Substring(1) : phone;
 
-            //Check if number without +234 is greater than 11
-            if (_phoneNumber.Length > 11 && prefix != "+234")
-            {
-                throw new Exception("Number without +234 must not be greater than 11 digits");
-            }
+            if (!phoneNumberEdited.All(char.IsDigit))
+                throw new Exception("Phone number contains invalid characters.");
 
-            // Check if +234 number is less than 14 characters
-            if (_phoneNumber.Length < 14 && prefix == "+234")
-            {
-                throw new Exception("Number with +234 must be 14 characters long");
-            }
+            if (phone.Length < 11)
+                throw new Exception("Phone number cannot be less than 11 digits.");
 
-            //Check if number with +234 is greater than 14 characters
-            if (_phoneNumber.Length > 14 && prefix == "+234")
-            {
-                throw new Exception("Number with +234 must not be greater than 14 characters" );
-            }
+            if (phone.Length > 11)
+                throw new Exception("Phone number must not be greater than 11 digits.");
 
-            //Convert it to normal 08030XXXXXXX
-            if (prefix == "+234")
-            {
-                _phoneNumber = $"0{_phoneNumber.Substring(4)}";
-            }
-
+            _phoneNumber = phone; // Normalize instance variable to 080x... format
             return true;
-
         }
+        
 
     }
 }
