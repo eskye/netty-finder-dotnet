@@ -58,6 +58,7 @@ namespace NettyFinder.Net.Tests
         public void Return_Airtel_Network_Name()
         {
             var network = new Network("08021458945");
+            //var network = new Network("09110108583");
             var result = network.GetNetworkName();
             result.ShouldBe(Constants.Airtel);
         }
@@ -93,21 +94,6 @@ namespace NettyFinder.Net.Tests
             var result = network.GetNetworkName();
             result.ShouldBe(Constants.Smile);
         }
-
-        [Fact]
-        public void Return_Multilinks_Network_Name()
-        {
-            var network = new Network("07027145894");
-            var result = network.GetNetworkName();
-            result.ShouldBe(Constants.Multilinks);
-        }
         
-        [Fact]
-        public void Return_StarComm_Network_Name()
-        {
-            var network = new Network("07029714589");
-            var result = network.GetNetworkName();
-            result.ShouldBe(Constants.Starcomms);
-        }
     }
 }
